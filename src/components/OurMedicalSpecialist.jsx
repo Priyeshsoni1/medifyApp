@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
 import React from "react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -46,35 +46,37 @@ const OurMedicalSpecialist = () => {
   ];
   return (
     <Box sx={{ backgroundColor: "#ffffff", padding: 2 }}>
-      <Typography variant="h2">Our Medical Specialist</Typography>
-      <Swiper
-        slidesPerView={2}
-        spaceBetween={20}
-        loop={true}
-        centeredSlides={true}
-        breakpoints={{
-          767: {
-            slidesPerView: 4,
-          },
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        style={{ padding: "4rem" }}
-        modules={[Pagination]}
-      >
-        <Box>
-          {data.map((item, index) => (
-            <SwiperSlide key={index}>
-              <Card
-                img={item.img}
-                title={item.title}
-                designation={item.designation}
-              />
-            </SwiperSlide>
-          ))}
-        </Box>
-      </Swiper>
+      <Container>
+        <Typography variant="h2">Our Medical Specialist</Typography>
+        <Swiper
+          slidesPerView={2}
+          spaceBetween={20}
+          loop={true}
+          centeredSlides={true}
+          breakpoints={{
+            767: {
+              slidesPerView: 4,
+            },
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          style={{ padding: "4rem" }}
+          modules={[Pagination]}
+        >
+          <Box>
+            {data.map((item, index) => (
+              <SwiperSlide key={index}>
+                <Card
+                  img={item.img}
+                  title={item.title}
+                  designation={item.designation}
+                />
+              </SwiperSlide>
+            ))}
+          </Box>
+        </Swiper>
+      </Container>
     </Box>
   );
 };

@@ -7,10 +7,12 @@ import OurFamData from "./components/OurFamData";
 import BlogSection from "./components/BlogSection";
 import PatientCaring from "./components/PatientCaring";
 import OurMedicalSpecialist from "./components/OurMedicalSpecialist";
+import Specialist from "./components/Specialist";
 
 export const App = () => {
   return (
     <div>
+      <Specialist />
       <OurMedicalSpecialist />
       <Outlet />
       <PatientCaring />
