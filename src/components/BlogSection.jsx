@@ -50,13 +50,13 @@ const BlogSection = () => {
         </Typography>
         <Typography variant="h2">Read Our Latest News</Typography>
         <Grid container>
-          <Grid item size={{ xs: 12, sm: 4, md: 4, lg: 4 }}>
+          <Grid size={{ xs: 12, sm: 4, md: 4, lg: 4 }}>
             <Card />
           </Grid>
-          <Grid item size={{ xs: 12, sm: 4, md: 4, lg: 4 }}>
+          <Grid size={{ xs: 12, sm: 4, md: 4, lg: 4 }}>
             <Card />
           </Grid>
-          <Grid item size={{ xs: 12, sm: 4, md: 4, lg: 4 }}>
+          <Grid size={{ xs: 12, sm: 4, md: 4, lg: 4 }}>
             <Card />
           </Grid>
         </Grid>

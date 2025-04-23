@@ -6,7 +6,7 @@ const PatientCaring = () => {
     <Box sx={{ backgroundColor: "#E7F0FF", padding: "2rem 0" }}>
       <Container>
         <Grid container>
-          <Grid item size={{ xs: 12, sm: 6, md: 6 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 6 }}>
             <Box
               src="/patientCaring.png"
               component={"img"}
@@ -15,7 +15,6 @@ const PatientCaring = () => {
             />
           </Grid>
           <Grid
-            item
             size={{ xs: 12, sm: 6, md: 6 }}
             sx={{
               display: "flex",

@@ -20,7 +20,6 @@ const ContactSection = () => {
     >
       <Grid container spacing={2}>
         <Grid
-          item
           size={{ xs: 12, sm: 6, md: 6 }}
           display="flex"
           justifyContent="center"
@@ -43,7 +42,6 @@ const ContactSection = () => {
         </Grid>
 
         <Grid
-          item
           size={{ xs: 12, sm: 6, md: 6 }}
           display={"flex"}
           flexDirection={"column"}
@@ -69,6 +67,8 @@ const ContactSection = () => {
                 flexDirection={"row"}
               >
                 Download the{" "}
+              </Typography>
+              <Stack direction={"row"}>
                 <Typography
                   fontFamily={"Poppins"}
                   fontSize={"48px"}
@@ -76,9 +76,17 @@ const ContactSection = () => {
                   color="#2AA7FF"
                 >
                   Medify
-                </Typography>{" "}
-                App
-              </Typography>
+                </Typography>
+                <Typography
+                  fontFamily={"Poppins"}
+                  fontSize={"48px"}
+                  fontWeight={"bold"}
+                  color="#1B3C74FF"
+                  flexDirection={"row"}
+                >
+                  App
+                </Typography>
+              </Stack>
               <Typography fontSize={"16px"} fontWeight={"bold"} color="#414146">
                 Get the link to download the app
               </Typography>{" "}

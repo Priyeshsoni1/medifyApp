@@ -6,7 +6,7 @@ const OurFamData = () => {
     <Box bgcolor={"#E7F0FF"}>
       <Container>
         <Grid container alignItems="center">
-          <Grid item size={{ xs: 12, sm: 12, md: 6 }}>
+          <Grid size={{ xs: 12, sm: 12, md: 6 }}>
             <Box
               textAlign="left"
               display="flex"
@@ -29,7 +29,7 @@ const OurFamData = () => {
               </Typography>
             </Box>
           </Grid>
-          <Grid item size={{ xs: 12, sm: 12, md: 6 }}>
+          <Grid size={{ xs: 12, sm: 12, md: 6 }}>
             <Box
               src={"/OurFamData.png"}
               component={"img"}

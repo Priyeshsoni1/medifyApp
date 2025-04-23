@@ -33,8 +33,8 @@ const Footer = () => {
   return (
     <Box bgcolor="secondary.main" pt={12} pb={6}>
       <Grid container spacing={2}>
-        {/* Each Grid item now takes 25% width on medium screens and up */}
-        <Grid item size={{ xs: 12, sm: 6, md: 3 }}>
+        {/* Each Grid  now takes 25% width on medium screens and up */}
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Stack alignItems={"center"} gap={"5rem"}>
             <img src="MedifyLogoText.png" width={"120rem"}></img>
             <Stack direction={"row"} gap={"2rem"}>
@@ -46,7 +46,7 @@ const Footer = () => {
           </Stack>
         </Grid>
         {[footerLinks1, footerLinks2, footerLinks1].map((links, index) => (
-          <Grid item size={{ xs: 12, sm: 6, md: 3 }} key={index}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
             <Stack spacing={2}>
               {links.map((link, i) => (
                 <FooterLinkBox key={i}>{link}</FooterLinkBox>

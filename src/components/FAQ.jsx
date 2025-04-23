@@ -35,7 +35,7 @@ const FAQ = () => {
           Frequently Asked Question
         </Typography>
         <Grid container>
-          <Grid item size={{ xs: 12, sm: 12, md: 6 }}>
+          <Grid size={{ xs: 12, sm: 12, md: 6 }}>
             <Box
               src="/faqs-banner.jpg"
               component={"img"}
@@ -43,7 +43,7 @@ const FAQ = () => {
               height={"auto"}
             ></Box>
           </Grid>
-          <Grid item size={{ xs: 12, sm: 12, md: 6 }}>
+          <Grid size={{ xs: 12, sm: 12, md: 6 }}>
             <AccordionUsage data={faqs} />
           </Grid>
         </Grid>

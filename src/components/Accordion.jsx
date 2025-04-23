@@ -14,8 +14,8 @@ export default function AccordionUsage({ data }) {
         return (
           <Accordion
             elevation={0}
-            expanded={0}
             sx={{ marginTop: 5, border: "none" }}
+            key={index}
           >
             <AccordionSummary
               expandIcon={<FaPlus />}
