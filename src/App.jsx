@@ -8,10 +8,12 @@ import BlogSection from "./components/BlogSection";
 import PatientCaring from "./components/PatientCaring";
 import OurMedicalSpecialist from "./components/OurMedicalSpecialist";
 import Specialist from "./components/Specialist";
+import OfferBanner from "./components/OfferBanner";
 
 export const App = () => {
   return (
     <div>
+      <OfferBanner />
       <Specialist />
       <OurMedicalSpecialist />
       <Outlet />
