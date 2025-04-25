@@ -9,10 +9,14 @@ import PatientCaring from "./components/PatientCaring";
 import OurMedicalSpecialist from "./components/OurMedicalSpecialist";
 import Specialist from "./components/Specialist";
 import OfferBanner from "./components/OfferBanner";
+import SearchSections from "./components/SearchSections";
+import Navbar from "./components/Navbar";
 
 export const App = () => {
   return (
     <div>
+      <Navbar />
+      <SearchSections belowSection={true} />
       <OfferBanner />
       <Specialist />
       <OurMedicalSpecialist />
