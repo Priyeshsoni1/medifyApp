@@ -49,7 +49,7 @@ const OurMedicalSpecialist = () => {
       <Container>
         <Typography variant="h2">Our Medical Specialist</Typography>
         <Swiper
-          slidesPerView={2}
+          slidesPerView={1}
           spaceBetween={20}
           loop={true}
           centeredSlides={true}

@@ -11,22 +11,30 @@ import Specialist from "./components/Specialist";
 import OfferBanner from "./components/OfferBanner";
 import SearchSections from "./components/SearchSections";
 import Navbar from "./components/Navbar";
+import HeroSection from "./components/HeroSection";
+import { Box, Container } from "@mui/material";
 
 export const App = () => {
   return (
     <div>
-      <Navbar />
-      <SearchSections belowSection={true} />
-      <OfferBanner />
-      <Specialist />
-      <OurMedicalSpecialist />
-      <Outlet />
-      <PatientCaring />
-      <BlogSection />
-      <OurFamData />
-      <FAQ />
-      <ContactSection />
-      <Footer />
+      <Box>
+        {" "}
+        <Box sx={{ backgroundColor: "#E7F0FF" }}>
+          <Navbar />
+          <HeroSection />
+        </Box>
+        <SearchSections belowSection={true} />
+        <OfferBanner />
+        <Specialist />
+        <OurMedicalSpecialist />
+        <Outlet />
+        <PatientCaring />
+        <BlogSection />
+        <OurFamData />
+        <FAQ />
+        <ContactSection />
+        <Footer />
+      </Box>{" "}
     </div>
   );
 };

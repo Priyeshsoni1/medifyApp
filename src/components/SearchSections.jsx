@@ -55,7 +55,7 @@ const SearchSections = ({ belowSection = false }) => {
   }, [state]);
   const handleSearch = () => {};
   return (
-    <Box>
+    <Box sx={{ backgroundColor: "#ffffff" }}>
       <Container>
         <Stack>
           <Grid container>
@@ -159,13 +159,13 @@ const SearchSections = ({ belowSection = false }) => {
           </Grid>
         </Stack>
         {belowSection && (
-          <Stack margin={"3rem 0"}>
+          <Stack p={3}>
             <Typography
               fontSize={"1.3rem"}
               color="secondary.main"
               fontWeight={520}
             >
-              You may be looking for
+              You May Be Looking For
             </Typography>
             <Grid container margin={"2rem 0"}>
               {services.map((item, index) => {

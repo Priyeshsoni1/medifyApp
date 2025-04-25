@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 const data = ["/OfferImg.png", "/OfferImg2.png", "/OfferImg.png"];
 const OfferBanner = () => {
   return (
-    <Box>
+    <Box sx={{ backgroundColor: "#ffffff" }}>
       <Container>
         <Swiper
           slidesPerView={1} // Default number of slides visible on smaller screens
