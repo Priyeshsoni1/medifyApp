@@ -14,18 +14,10 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import { useNavigate } from "react-router-dom";
-const services = [
-  { img: "AmbulanceImg.png", title: "Doctors" },
-  { img: "CapsuleImg.png", title: "Labs" },
-  { img: "HospitalImg.png", title: "Hospitals", active: true },
-  { img: "LabImg.png", title: "Medical Store" },
-  { img: "doctorImg.png", title: "Ambulance" },
-];
 
-const SearchByHospitals = ({ hospitals, setHospitals, hospitalAll = [] }) => {
+const SearchByHospitals = ({ setHospitals, hospitalAll = [] }) => {
   const [AutocompleteData, setAutocompleteData] = useState("");
 
   //I want uniqueName for Autocomplete

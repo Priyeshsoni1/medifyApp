@@ -1,17 +1,9 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
-import HeroSection from "../../components/HeroSection";
-import SearchSections from "../../components/SearchSections";
-import OfferBanner from "../../components/OfferBanner";
-import Specialist from "../../components/Specialist";
-import OurMedicalSpecialist from "../../components/OurMedicalSpecialist";
-import { Outlet } from "react-router-dom";
-import PatientCaring from "../../components/PatientCaring";
-import BlogSection from "../../components/BlogSection";
-import OurFamData from "../../components/OurFamData";
+
 import HospitalShow from "../../components/HospitalShow";
-import { useParams, useSearchParams } from "react-router-dom";
+
 import SearchByHospitals from "../../components/SearchByHospitals";
 const MyBooking = () => {
   const [hospitals, setHospitals] = useState([]);

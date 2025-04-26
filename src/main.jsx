@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { App } from "./App";
 import "./App.css";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import theme from "./Theme/theme";
+import theme from "./theme/Theme";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
 import Home from "./features/home/Home";
