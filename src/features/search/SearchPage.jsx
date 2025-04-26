@@ -77,7 +77,8 @@ const SearchPage = () => {
               component={"h1"}
               sx={{ fontWeight: "550", fontSize: "1.4rem" }}
             >
-              {hospitals.length} medical centers available in {city}
+              {hospitals.length} medical centers available in{" "}
+              {city.toLowerCase()}
             </Typography>
             <Stack direction={"row"} gap={1}>
               <img src="/verified.png" width={25} height={25} />

@@ -130,8 +130,10 @@ const ShowTimeBox = ({ timeSlots, hospital }) => {
                       const completInfo = {
                         id: v4(),
                         ...hospital,
-                        timeSlot,
-                        date: moment().add(i, "days").format("YYYY-MM-DD"),
+                        bookingTime: timeSlot,
+                        bookingDate: moment()
+                          .add(i, "days")
+                          .format("YYYY-MM-DD"),
                       };
                       const oldData = localStorage.getItem("bookings");
                       const oldDataParsed = JSON.parse(oldData) || [];

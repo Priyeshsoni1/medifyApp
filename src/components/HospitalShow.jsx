@@ -159,7 +159,7 @@ const HospitalShow = ({ hospital, timeSlots, showTimeSlots }) => {
               }}
             >
               <Chip
-                label={hospital.timeSlot}
+                label={hospital.bookingTime}
                 variant="outlined"
                 sx={{
                   border: "1px solid #8FD8E5FF",
@@ -168,7 +168,7 @@ const HospitalShow = ({ hospital, timeSlots, showTimeSlots }) => {
                 }}
               />
               <Chip
-                label={hospital.date}
+                label={hospital.bookingDate}
                 variant="outlined"
                 sx={{
                   border: "1px solid #0EA71DFF",
