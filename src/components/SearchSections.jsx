@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import { useNavigate } from "react-router-dom";
 const services = [
   { img: "AmbulanceImg.png", title: "Doctors" },
   { img: "CapsuleImg.png", title: "Labs" },
@@ -26,7 +27,7 @@ const SearchSections = ({ belowSection = false }) => {
   const [cityOpiton, setCityOption] = useState([]);
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
-
+  const navigate = useNavigate();
   const fetchState = async () => {
     try {
       const data = await fetch("https://meddata-backend.onrender.com/states");
@@ -53,12 +54,17 @@ const SearchSections = ({ belowSection = false }) => {
   useEffect(() => {
     state && fetchCity(state);
   }, [state]);
-  const handleSearch = () => {};
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (city && state) {
+      navigate(`/search?state=${state}&city=${city}`);
+    }
+  };
   return (
-    <Box sx={{ backgroundColor: "#ffffff" }}>
+    <Box sx={{ boxShadow: "rgba(0, 0, 0, 0) 0px 5px 15px" }}>
       <Container>
-        <Stack>
-          <Grid container>
+        <Stack padding={"1rem 0"}>
+          <Grid container alignItems={"center"}>
             <Grid item size={{ xs: 12, sm: 4, md: 4 }} padding={"1rem 2rem"}>
               <FormControl fullWidth>
                 <Select

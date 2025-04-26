@@ -12,8 +12,10 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md")); // md ~ 900px
   const [menuOpen, setMenuOpen] = useState(false);
@@ -47,7 +49,9 @@ const Navbar = () => {
             width: mobile ? "100%" : "auto",
             justifyContent: mobile ? "flex-start" : "center",
           }}
-          onClick={() => setMenuOpen(false)}
+          onClick={() => {
+            navigate("/my-bookings");
+          }}
         >
           {item}
         </Button>

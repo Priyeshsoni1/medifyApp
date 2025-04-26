@@ -17,7 +17,7 @@ const OfferBanner = () => {
           pagination={{
             clickable: true,
           }}
-          style={{ padding: "10rem 0 6rem 0" }} // Adjust padding for better spacing on all screens
+          style={{ padding: "0rem 0 6rem 0" }} // Adjust padding for better spacing on all screens
           modules={[Pagination]}
           breakpoints={{
             // When window width is >= 600px (sm breakpoint)

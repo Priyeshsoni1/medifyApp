@@ -17,24 +17,10 @@ import { Box, Container } from "@mui/material";
 export const App = () => {
   return (
     <div>
-      <Box>
-        {" "}
-        <Box sx={{ backgroundColor: "#E7F0FF" }}>
-          <Navbar />
-          <HeroSection />
-        </Box>
-        <SearchSections belowSection={true} />
-        <OfferBanner />
-        <Specialist />
-        <OurMedicalSpecialist />
-        <Outlet />
-        <PatientCaring />
-        <BlogSection />
-        <OurFamData />
-        <FAQ />
-        <ContactSection />
-        <Footer />
-      </Box>{" "}
+      <Outlet />
+      <FAQ />
+      <ContactSection />
+      <Footer />
     </div>
   );
 };
