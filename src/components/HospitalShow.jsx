@@ -82,6 +82,7 @@ const HospitalShow = ({ hospital, timeSlots, showTimeSlots }) => {
         <Grid size={{ xs: 8, sm: 8, md: 6 }} padding={"0 2rem"}>
           <Typography
             fontFamily={"Poppins"}
+            component={"h3"}
             sx={{ fontSize: "1.2rem", color: "#14BEF0", fontWeight: 600 }}
           >
             {hospitalName}

@@ -25,11 +25,11 @@ const services = [
   { img: "doctorImg.png", title: "Ambulance" },
 ];
 
-const SearchByHospitals = ({ hospitals, setHospitals, hospitalAll }) => {
+const SearchByHospitals = ({ hospitals, setHospitals, hospitalAll = [] }) => {
   const [AutocompleteData, setAutocompleteData] = useState("");
 
   //I want uniqueName for Autocomplete
-  const uniqueName = hospitalAll.reduce((acc, curr) => {
+  const uniqueName = hospitalAll?.reduce((acc, curr) => {
     if (!acc.some((item) => item["Hospital Name"] === curr["Hospital Name"])) {
       acc.push(curr);
     }

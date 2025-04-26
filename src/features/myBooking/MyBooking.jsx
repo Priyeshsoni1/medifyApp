@@ -19,7 +19,7 @@ const MyBooking = () => {
 
   const fetchBooking = () => {
     try {
-      const data = localStorage.getItem("hospital");
+      const data = localStorage.getItem("bookings");
       const response = JSON.parse(data);
       setHospitals(response);
       setHospitalAll(response);
@@ -40,29 +40,53 @@ const MyBooking = () => {
       </Box>
       <Box
         bgcolor={"primary.main"}
-        sx={{ borderRadius: "0rem 0rem 20px 20px", marginBottom: "5rem" }}
+        sx={{
+          borderRadius: "0rem 0rem 20px 20px",
+          marginBottom: "5rem",
+          padding: { xs: "1rem 0", md: " 0" },
+          width: "100%",
+        }}
       >
-        <Box
-          sx={{
-            // border: "1px solid black",
+        <Grid container alignItems={"center"}>
+          <Grid size={{ xs: 12, sm: 12, md: 4 }}>
+            {" "}
+            <Typography
+              variant="h1"
+              component={"h1"}
+              color="#ffff"
+              fontSize={"2.5rem"}
+            >
+              My Bookings
+            </Typography>
+          </Grid>
+          <Grid
+            size={{ xs: 12, sm: 12, md: 8 }}
+            textAlign={"left"}
+            maxWidth={"700px"}
+          >
+            <Box
+              sx={{
+                // border: "1px solid black",
 
-            maxWidth: { xs: "100%", md: "80%" },
-            margin: "0 auto",
-            boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-            borderRadius: "11px",
-            backgroundColor: "#ffffff",
-            top: "2rem",
+                maxWidth: { xs: "100%", md: "100%" },
+                margin: "0 auto",
+                boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                borderRadius: "11px",
+                backgroundColor: "#ffffff",
+                top: "2rem",
 
-            position: "relative",
-          }}
-        >
-          <SearchByHospitals
-            belowSection={false}
-            hospitals={hospitals}
-            hospitalAll={hospitalAll}
-            setHospitals={setHospitals}
-          />
-        </Box>
+                position: "relative",
+              }}
+            >
+              <SearchByHospitals
+                belowSection={false}
+                hospitals={hospitals}
+                hospitalAll={hospitalAll}
+                setHospitals={setHospitals}
+              />
+            </Box>
+          </Grid>
+        </Grid>
       </Box>
       <Box
         textAlign={"left"}
@@ -75,16 +99,17 @@ const MyBooking = () => {
       >
         <Grid container>
           <Grid size={{ xs: 12, sm: 12, md: 8 }}>
-            {hospitals.map((hospital, index) => {
-              return (
-                <HospitalShow
-                  hospital={hospital}
-                  key={index}
+            {hospitals &&
+              hospitals.map((hospital, index) => {
+                return (
+                  <HospitalShow
+                    hospital={hospital}
+                    key={index}
 
-                  // timeSlots={timeSlots}
-                />
-              );
-            })}
+                    // timeSlots={timeSlots}
+                  />
+                );
+              })}
           </Grid>
           <Grid size={{ xs: 12, sm: 12, md: 4 }} textAlign={"center"}>
             <Box src="/AddImg.png" component={"img"}></Box>

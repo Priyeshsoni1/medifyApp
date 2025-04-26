@@ -68,6 +68,8 @@ const SearchSections = ({ belowSection = false }) => {
             <Grid size={{ xs: 12, sm: 4, md: 4 }} padding={"1rem 2rem"}>
               <FormControl fullWidth>
                 <Select
+                  id="state"
+                  name="state"
                   sx={{ border: "none" }}
                   value={state}
                   displayEmpty
@@ -112,6 +114,7 @@ const SearchSections = ({ belowSection = false }) => {
                   value={city}
                   sx={{ border: "none" }}
                   id="city"
+                  name="city"
                   displayEmpty
                   disabled={!state}
                   renderValue={(selected) => {
@@ -150,6 +153,8 @@ const SearchSections = ({ belowSection = false }) => {
             <Grid size={{ xs: 12, sm: 4, md: 4 }} padding={"1rem 2rem"}>
               <Button
                 disabled={!city || !state}
+                type="submit"
+                id="searchBtn"
                 onClick={handleSearch}
                 sx={{
                   backgroundColor: "primary.main",

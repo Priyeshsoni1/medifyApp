@@ -80,9 +80,10 @@ const SearchPage = () => {
           <Box p={2}>
             <Typography
               fontFamily={"Poppins"}
+              component={"h1"}
               sx={{ fontWeight: "550", fontSize: "1.4rem" }}
             >
-              {hospitals.length} medical centers available in {state}
+              {hospitals.length} medical centers available in {city}
             </Typography>
             <Stack direction={"row"} gap={1}>
               <img src="/verified.png" width={25} height={25} />

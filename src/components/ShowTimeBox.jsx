@@ -109,7 +109,10 @@ const ShowTimeBox = ({ timeSlots, hospital }) => {
                 gap: 2,
               }}
             >
-              <Typography sx={{ fontWeight: 600, minWidth: "100px" }}>
+              <Typography
+                component={"p"}
+                sx={{ fontWeight: 600, minWidth: "100px" }}
+              >
                 {period.charAt(0).toUpperCase() + period.slice(1)}
               </Typography>
               <Box
@@ -130,10 +133,10 @@ const ShowTimeBox = ({ timeSlots, hospital }) => {
                         timeSlot,
                         date: moment().add(i, "days").format("YYYY-MM-DD"),
                       };
-                      const oldData = localStorage.getItem("hospital");
+                      const oldData = localStorage.getItem("bookings");
                       const oldDataParsed = JSON.parse(oldData) || [];
                       const newData = [...oldDataParsed, completInfo];
-                      localStorage.setItem("hospital", JSON.stringify(newData));
+                      localStorage.setItem("bookings", JSON.stringify(newData));
                     }}
                     key={index}
                     sx={{
