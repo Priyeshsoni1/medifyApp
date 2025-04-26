@@ -17,6 +17,7 @@ const SearchPage = () => {
   const [hospitals, setHospitals] = useState([]);
   const [state, setState] = useState(seachParams.get("state"));
   const [city, setCity] = useState(seachParams.get("city"));
+
   const fetchHopspital = async () => {
     try {
       const res = await fetch(
@@ -29,14 +30,16 @@ const SearchPage = () => {
     }
   };
   useEffect(() => {
+    setState(seachParams.get("state"));
+    setCity(seachParams.get("city"));
     if (state && city) fetchHopspital();
-  }, [city, state]);
+  }, [city, state, seachParams]);
   const timeSlots = {
     morning: ["11:30 AM"],
     afternoon: ["12:00 PM", "12:30 PM", "01:30 PM", "02:00 PM", "02:30 PM"],
     evening: ["06:00 PM", "06:30 PM", "07:00 PM", "07:30 PM"],
   };
-  console.log(hospitals);
+
   return (
     <Box sx={{ backgroundColor: "#E7F0FF" }}>
       {" "}
@@ -45,7 +48,7 @@ const SearchPage = () => {
       </Box>
       <Box
         bgcolor={"primary.main"}
-        sx={{ borderRadius: "0rem 0rem 20px 20px", marginBottom: "10rem" }}
+        sx={{ borderRadius: "0rem 0rem 20px 20px", marginBottom: "5rem" }}
       >
         <Box
           sx={{
@@ -73,23 +76,26 @@ const SearchPage = () => {
           margin: "0 auto",
         }}
       >
-        <Box p={2}>
-          <Typography
-            fontFamily={"Poppins"}
-            sx={{ fontWeight: "550", fontSize: "1.4rem" }}
-          >
-            15 medical centers available in Alaska
-          </Typography>
-          <Stack direction={"row"} gap={1}>
-            <img src="/verified.png" width={25} height={25} />
+        {hospitals.length > 0 && city && state && (
+          <Box p={2}>
             <Typography
               fontFamily={"Poppins"}
-              sx={{ fontWeight: "500", fontSize: "1rem", color: "#787887" }}
+              sx={{ fontWeight: "550", fontSize: "1.4rem" }}
             >
-              Book appointments with minimum wait-time & verified doctor details
+              {hospitals.length} medical centers available in {state}
             </Typography>
-          </Stack>
-        </Box>
+            <Stack direction={"row"} gap={1}>
+              <img src="/verified.png" width={25} height={25} />
+              <Typography
+                fontFamily={"Poppins"}
+                sx={{ fontWeight: "500", fontSize: "1rem", color: "#787887" }}
+              >
+                Book appointments with minimum wait-time & verified doctor
+                details
+              </Typography>
+            </Stack>{" "}
+          </Box>
+        )}
         <Grid container>
           <Grid size={{ xs: 12, sm: 12, md: 8 }}>
             {hospitals.map((hospital, index) => {
@@ -97,6 +103,7 @@ const SearchPage = () => {
                 <HospitalShow
                   hospital={hospital}
                   key={index}
+                  showTimeSlots={true}
                   timeSlots={timeSlots}
                 />
               );

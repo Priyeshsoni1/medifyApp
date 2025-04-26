@@ -65,14 +65,12 @@ const SearchSections = ({ belowSection = false }) => {
       <Container>
         <Stack padding={"1rem 0"}>
           <Grid container alignItems={"center"}>
-            <Grid item size={{ xs: 12, sm: 4, md: 4 }} padding={"1rem 2rem"}>
+            <Grid size={{ xs: 12, sm: 4, md: 4 }} padding={"1rem 2rem"}>
               <FormControl fullWidth>
                 <Select
                   sx={{ border: "none" }}
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
+                  value={state}
                   displayEmpty
-                  input={<OutlinedInput />}
                   renderValue={(selected) => {
                     if (!selected) {
                       return (
@@ -108,14 +106,14 @@ const SearchSections = ({ belowSection = false }) => {
                 </Select>
               </FormControl>
             </Grid>{" "}
-            <Grid item size={{ xs: 12, sm: 4, md: 4 }} padding={" 1rem 2rem"}>
+            <Grid size={{ xs: 12, sm: 4, md: 4 }} padding={" 1rem 2rem"}>
               <FormControl fullWidth>
                 <Select
+                  value={city}
                   sx={{ border: "none" }}
                   id="city"
                   displayEmpty
                   disabled={!state}
-                  input={<OutlinedInput />}
                   renderValue={(selected) => {
                     if (!selected || selected.length === 0) {
                       return (
@@ -149,7 +147,7 @@ const SearchSections = ({ belowSection = false }) => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item size={{ xs: 12, sm: 4, md: 4 }} padding={"1rem 2rem"}>
+            <Grid size={{ xs: 12, sm: 4, md: 4 }} padding={"1rem 2rem"}>
               <Button
                 disabled={!city || !state}
                 onClick={handleSearch}
@@ -176,7 +174,7 @@ const SearchSections = ({ belowSection = false }) => {
             <Grid container margin={"2rem 0"}>
               {services.map((item, index) => {
                 return (
-                  <Grid size={{ xs: 6, sm: 2.4, md: 2.4 }}>
+                  <Grid size={{ xs: 6, sm: 2.4, md: 2.4 }} key={index}>
                     <Box
                       maxHeight={"5rem"}
                       bgcolor={"#FAFBFE"}

@@ -15,12 +15,14 @@ import { useParams, useSearchParams } from "react-router-dom";
 import SearchByHospitals from "../../components/SearchByHospitals";
 const MyBooking = () => {
   const [hospitals, setHospitals] = useState([]);
+  const [hospitalAll, setHospitalAll] = useState([]);
 
   const fetchBooking = () => {
     try {
       const data = localStorage.getItem("hospital");
       const response = JSON.parse(data);
       setHospitals(response);
+      setHospitalAll(response);
     } catch (err) {
       console.log("Booking Fetch Error", err);
     }
@@ -38,7 +40,7 @@ const MyBooking = () => {
       </Box>
       <Box
         bgcolor={"primary.main"}
-        sx={{ borderRadius: "0rem 0rem 20px 20px", marginBottom: "10rem" }}
+        sx={{ borderRadius: "0rem 0rem 20px 20px", marginBottom: "5rem" }}
       >
         <Box
           sx={{
@@ -54,7 +56,12 @@ const MyBooking = () => {
             position: "relative",
           }}
         >
-          <SearchByHospitals belowSection={false} hospitals={hospitals} />
+          <SearchByHospitals
+            belowSection={false}
+            hospitals={hospitals}
+            hospitalAll={hospitalAll}
+            setHospitals={setHospitals}
+          />
         </Box>
       </Box>
       <Box
@@ -73,6 +80,7 @@ const MyBooking = () => {
                 <HospitalShow
                   hospital={hospital}
                   key={index}
+
                   // timeSlots={timeSlots}
                 />
               );

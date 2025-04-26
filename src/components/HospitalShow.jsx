@@ -11,9 +11,8 @@ import {
 import React, { useEffect, useState } from "react";
 import ShowTimeBox from "./ShowTimeBox";
 
-const HospitalShow = ({ hospital, timeSlots }) => {
-  console.log("HospitalShow", hospital, timeSlots);
-
+const HospitalShow = ({ hospital, timeSlots, showTimeSlots }) => {
+  const [openTimePicker, setOpenTimePicker] = useState(false);
   const {
     "Provider ID": providerId,
     "Hospital Name": hospitalName,
@@ -99,7 +98,7 @@ const HospitalShow = ({ hospital, timeSlots }) => {
           >
             {hospitalType}
           </Typography>
-          <Stack direction={"row"} gap={1}>
+          <Stack direction={"row"} gap={1} alignContent={"center"}>
             <Typography
               fontFamily={"Poppins"}
               sx={{
@@ -113,7 +112,7 @@ const HospitalShow = ({ hospital, timeSlots }) => {
             <Typography
               fontFamily={"Poppins"}
               sx={{
-                fontSize: "1",
+                fontSize: ".8rem",
                 color: "primary.main",
                 fontWeight: 400,
               }}
@@ -123,7 +122,7 @@ const HospitalShow = ({ hospital, timeSlots }) => {
           </Stack>
         </Grid>
         <Grid size={{ xs: 12, sm: 12, md: 4 }}>
-          {timeSlots && timeSlots.length > 0 ? (
+          {showTimeSlots ? (
             <Box
               sx={{
                 display: "flex",
@@ -138,6 +137,9 @@ const HospitalShow = ({ hospital, timeSlots }) => {
                 Available Today
               </Typography>
               <Button
+                onClick={() => {
+                  setOpenTimePicker(!openTimePicker);
+                }}
                 sx={{ color: "#ffffff", backgroundColor: "primary.main" }}
               >
                 Book FREE Center Visit
@@ -148,8 +150,9 @@ const HospitalShow = ({ hospital, timeSlots }) => {
               sx={{
                 display: "flex",
                 gap: ".5rem",
+                marginTop: "1rem",
                 flexDirection: "row",
-                justifyContent: "flex-end",
+                justifyContent: "space-between",
                 alignItems: "flex-start",
                 height: "100%",
               }}
@@ -176,7 +179,7 @@ const HospitalShow = ({ hospital, timeSlots }) => {
           )}
         </Grid>
       </Grid>
-      {timeSlots && timeSlots.length > 0 && (
+      {showTimeSlots && openTimePicker && (
         <ShowTimeBox hospital={hospital} timeSlots={timeSlots} />
       )}
     </Box>

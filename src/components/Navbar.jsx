@@ -50,7 +50,13 @@ const Navbar = () => {
             justifyContent: mobile ? "flex-start" : "center",
           }}
           onClick={() => {
-            navigate("/my-bookings");
+            if (item == "My Bookings") {
+              navigate("/my-bookings");
+            }
+
+            if (item === "Hospitals") {
+              navigate("/search");
+            }
           }}
         >
           {item}
@@ -89,7 +95,14 @@ const Navbar = () => {
         py={3}
         //   px={1}
       >
-        <Box component="img" src="/MedifyLogoText.png" width="7rem" />
+        <Box
+          component="img"
+          src="/MedifyLogoText.png"
+          width="7rem"
+          onClick={() => {
+            navigate("/");
+          }}
+        />
 
         {!isMobile && <NavButtons />}
 

@@ -24,30 +24,52 @@ const services = [
   { img: "LabImg.png", title: "Medical Store" },
   { img: "doctorImg.png", title: "Ambulance" },
 ];
-const SearchByHospitals = ({ hospitals }) => {
+
+const SearchByHospitals = ({ hospitals, setHospitals, hospitalAll }) => {
+  const [AutocompleteData, setAutocompleteData] = useState("");
+
+  //I want uniqueName for Autocomplete
+  const uniqueName = hospitalAll.reduce((acc, curr) => {
+    if (!acc.some((item) => item["Hospital Name"] === curr["Hospital Name"])) {
+      acc.push(curr);
+    }
+    return acc;
+  }, []);
+
   const handleSearch = (e) => {
     e.preventDefault();
+    const filterHospitals = hospitalAll.filter((hospital) => {
+      return hospital["Hospital Name"]
+        .toLowerCase()
+        .includes(AutocompleteData["Hospital Name"].toLowerCase());
+    });
+    setHospitals(filterHospitals);
   };
   return (
     <Box sx={{ boxShadow: "rgba(0, 0, 0, 0) 0px 5px 15px" }}>
       <Container>
         <Stack padding={"1rem 0"}>
           <Grid container alignItems={"center"}>
-            <Grid item size={{ xs: 12, sm: 8, md: 8 }} padding={"1rem 2rem"}>
+            <Grid size={{ xs: 12, sm: 8, md: 8 }} padding={"1rem 2rem"}>
               <FormControl fullWidth>
                 <Autocomplete
+                  onChange={(e, value) => {
+                    setAutocompleteData(value);
+                    if (!value) {
+                      setHospitals(hospitalAll);
+                    }
+                  }}
                   disablePortal
-                  options={hospitals}
+                  options={uniqueName}
                   sx={{ borderRadius: "10px" }}
-                  key={hospitals.id}
-                  getOptionLabel={(option) => option["Hospital Name"]}
+                  getOptionLabel={(option) => `${option["Hospital Name"]}`}
                   renderInput={(params) => (
                     <TextField {...params} label="Search By Hospitals" />
                   )}
                 />
               </FormControl>
             </Grid>{" "}
-            <Grid item size={{ xs: 12, sm: 4, md: 4 }} padding={"1rem 2rem"}>
+            <Grid size={{ xs: 12, sm: 4, md: 4 }} padding={"1rem 2rem"}>
               <Button
                 // disabled={!city || !state}
                 onClick={handleSearch}
